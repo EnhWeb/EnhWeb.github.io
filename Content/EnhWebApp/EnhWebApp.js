@@ -31,27 +31,27 @@ var EnhWebApp = (function ($) {
 
         $routeProvider.when("/login", {
             controller: "myController11",
-            templateUrl: "/app/views/login.html"
+            templateUrl: "/Content/EnhWebApp/Views/login.html"
         });
 
         $routeProvider.when("/signup", {
             controller: "myController12",
-            templateUrl: "/app/views/signup.html"
+            templateUrl: "/Content/EnhWebApp/Views/signup.html"
         });
 
         $routeProvider.when("/orders", {
             controller: "myController13",
-            templateUrl: "/app/views/orders.html"
+            templateUrl: "/Content/EnhWebApp/Views/orders.html"
         });
 
         $routeProvider.when("/refresh", {
             controller: "myController14",
-            templateUrl: "/app/views/refresh.html"
+            templateUrl: "/Content/EnhWebApp/Views/refresh.html"
         });
 
         $routeProvider.when("/tokens", {
             controller: "myController15",
-            templateUrl: "/app/views/tokens.html"
+            templateUrl: "/Content/EnhWebApp/Views/tokens.html"
         });
 
         $routeProvider.otherwise({ redirectTo: "/home" });
