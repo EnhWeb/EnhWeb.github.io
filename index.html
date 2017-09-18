@@ -9,7 +9,7 @@
     <link href="Content/Libs/ng-my-pagination/my-pagination.css" rel="stylesheet" />
     <link href="Content/Libs/layer-v3.0.1/layer/mobile/need/layer.css" rel="stylesheet" />
     <link href="Content/EnhWebApp/EnhWebApp.css" rel="stylesheet" />
-    <script src="Content/Libs/angularjs/angular.min.js"></script>
+    
 </head>
 <body>
     <div class="container" ng-app="EnhWebApp">
@@ -45,9 +45,10 @@
         <div ng-controller="myController13" class="row" title="myController13"></div>
         <div ng-controller="myController14" class="row" title="myController14"></div>
         <div ng-controller="myController15" class="row" title="myController15"></div>
-        <div ng-include="/Content/EnhWebApp/Views/myController10.html">ng-include</div>
+        <div ng-include="'/Content/EnhWebApp/Views/myController10.html'">ng-include</div><a href="#/home">/home</a>
     </div>
-    <script src="Content/Libs/angularjs/angular-route.js"></script>
+    <script src="Content/Libs/angularjs/angular.min.js"></script>
+    <script src="Content/Libs/angularjs/angular-route.min.js"></script>
     <script src="Content/Libs/angularjs/angular-resource.min.js"></script>
     <script src="Content/Libs/loading-bar/loading-bar.min.js"></script>
     <script src="Content/Libs/ng-my-pagination/my-pagination.js"></script>
