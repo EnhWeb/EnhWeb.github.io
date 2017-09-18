@@ -18,9 +18,13 @@
 <body>
     <div class="container" ng-app="EnhWebApp">
         <div ng-controller="myController1" class="row">
-            <div class="col-md-12">
-                <img src="Images/Test/0acce39ff1a0435464c23e1f06b9f877.jpg" height="50" width="50" />myController1 header
-            </div>
+            <div>myController1</div>
+            <ul>
+                <li class="col-md-4" ng-repeat="item in Industrys" ng-click="alert(item.id);">
+                    <img ng-src="item.filepath" height="100" width="100" />
+                    <h3>{{item.industryname}}</h3>
+                </li>
+            </ul>
         </div>
         <div ng-controller="myController2" class="row">myController2</div>
         <div ng-controller="myController3" class="row">myController3</div>
