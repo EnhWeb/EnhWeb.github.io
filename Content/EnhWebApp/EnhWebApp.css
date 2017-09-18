@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.row {
+    border: 1px solid #cccccc;
+}
+
+.col[*] {
+    border: 1px solid yellow;
+}
+
+.Industry-Item {
+    border: 1px solid #ffffff;
+    padding-top: 10px;
+}
+
+    .Industry-Item:hover {
+        background: #eeeeee;
+        border: 1px solid #dddddd;
+        cursor: pointer;
+    }

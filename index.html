@@ -4,35 +4,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>EnhWeb AnagularJS APP</title>
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
-    <style>
-        .row{
-            border:1px solid #cccccc;
-        }
-        .col-[*] {
-            border: 1px solid yellow;
-        }
-    </style>
+    <link href="Content/Css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/Css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/Libs/ng-my-pagination/my-pagination.css" rel="stylesheet" />
+    <link href="Content/Libs/layer-v3.0.1/layer/mobile/need/layer.css" rel="stylesheet" />
+    <link href="Content/EnhWebApp/EnhWebApp.css" rel="stylesheet" />
+    <script src="Content/Libs/angularjs/angular.min.js"></script>
+    <script src="Content/Libs/angularjs/angular-resource.min.js"></script>
+    <script src="Content/Libs/loading-bar/loading-bar.min.js"></script>
 </head>
 <body>
     <div class="container" ng-app="EnhWebApp">
-        <div ng-controller="myController1" class="row">
-            <div>myController1</div>
-            <ul>
-                <li class="col-md-4" ng-repeat="item in Industrys" ng-click="alert(item.id);">
-                    <img ng-src="item.filepath" height="100" width="100" />
-                    <h3>{{item.industryname}}</h3>
-                </li>
-            </ul>
+        <div ng-controller="myController1" class="row" title="myController1">
+            <div><button type="button" ng-click="LoadData();"><i class="glyphicon glyphicon-refresh"></i> 刷新</button></div>
+            <div ng-show="Loading">加载中 ...</div>
+            <div ng-hide="isSuccess">加载数据失败！</div>
+            <div ng-hide="Loading" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 text-center Industry-Item" ng-repeat="item in Industrys" ng-click="alert(item.id);" data-id="{{item.id}}">
+                <img ng-src="{{item.filepath}}" height="100" width="100" />
+                <h3>{{item.industryname}}</h3>
+            </div>
         </div>
-        <div ng-controller="myController2" class="row">myController2</div>
-        <div ng-controller="myController3" class="row">myController3</div>
+        <div ng-controller="myController2" class="row" title="myController2">
+            <div ng-show="Loading">加载中 ...</div>
+            <div ng-hide="isSuccess">加载数据失败！</div>
+            <div ng-show="isSuccess" ng-hide="Loading" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 text-center Industry-Item" ng-repeat="company in Companys" ng-click="alert(company.id);" data-id="{{company.id}}">
+                <img ng-src="{{company.logoimg}}" height="100" width="100" />
+                <h3>{{company.comname}}</h3><span>注册时间：{{company.regdate}}</span>
+                期间如下：
+                <ul>
+                    <li ng-repeat="case in company.cases" data-id="{{case.Id}}" data-item-state="{{case.State}}">
+                        {{case.CaseDate}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 text-right" ng-if="myPage.totalItems" my-pagination pg="myPage"></div>
+        </div>
+        <div ng-controller="myController3" class="row" title="myController3">
+
+        </div>
     </div>
-    <script src="Scripts/angular.js"></script>
-    <script src="Scripts/angular-resource.js"></script>
-    <script src="Scripts/i18n/angular-locale_zh-cn.js"></script>
-    <script src="Scripts/loading-bar.min.js"></script>
+    <script src="Content/Libs/ng-my-pagination/my-pagination.js"></script>
+    <script src="Content/Libs/jquery/jquery-1.9.1.min.js"></script>
+    <script src="Content/Libs/layer-v3.0.1/layer/layer.js"></script>
     <script src="Content/EnhWebApp/EnhWebApp.js"></script>
     <script src="Content/EnhWebApp/controllers/EnhWebApp.myController1.js"></script>
     <script src="Content/EnhWebApp/controllers/EnhWebApp.myController2.js"></script>
