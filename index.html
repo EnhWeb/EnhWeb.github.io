@@ -6,19 +6,32 @@
     <title>EnhWeb AnagularJS APP</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <style>
+        .row{
+            border:1px solid #cccccc;
+        }
+        .col-[*] {
+            border: 1px solid yellow;
+        }
+    </style>
 </head>
 <body>
-    <div ng-app="EnhWebApp">
-        
-        <img src="Images/Test/0acce39ff1a0435464c23e1f06b9f877.jpg" height="50" width="50" />
-        <div ng-controller="myController1">myController1</div>
-        <div ng-controller="myController2">myController2</div>
-        <div ng-controller="myController3">myController3</div>
+    <div class="container" ng-app="EnhWebApp">
+        <div ng-controller="myController1" class="row">
+            <div class="col-md-12">
+                <img src="Images/Test/0acce39ff1a0435464c23e1f06b9f877.jpg" height="50" width="50" />myController1 header
+            </div>
+        </div>
+        <div ng-controller="myController2" class="row">myController2</div>
+        <div ng-controller="myController3" class="row">myController3</div>
     </div>
-
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
     <script src="Scripts/i18n/angular-locale_zh-cn.js"></script>
     <script src="Scripts/loading-bar.min.js"></script>
-    <script src="Content/app/app.js"></script>
+    <script src="Content/EnhWebApp/EnhWebApp.js"></script>
+    <script src="Content/EnhWebApp/controllers/EnhWebApp.myController1.js"></script>
+    <script src="Content/EnhWebApp/controllers/EnhWebApp.myController2.js"></script>
+    <script src="Content/EnhWebApp/controllers/EnhWebApp.myController3.js"></script>
 </body>
 </html>
