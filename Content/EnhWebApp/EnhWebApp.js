@@ -25,32 +25,32 @@ var EnhWebApp = (function ($) {
     app.config(function ($routeProvider) {
 
         $routeProvider.when("/home", {
-            controller: "homeController",
-            templateUrl: "/app/views/home.html"
+            controller: "myController10",
+            templateUrl: "/Content/EnhWebApp/Views/myController10.html"
         });
 
         $routeProvider.when("/login", {
-            controller: "loginController",
+            controller: "myController11",
             templateUrl: "/app/views/login.html"
         });
 
         $routeProvider.when("/signup", {
-            controller: "signupController",
+            controller: "myController12",
             templateUrl: "/app/views/signup.html"
         });
 
         $routeProvider.when("/orders", {
-            controller: "ordersController",
+            controller: "myController13",
             templateUrl: "/app/views/orders.html"
         });
 
         $routeProvider.when("/refresh", {
-            controller: "refreshController",
+            controller: "myController14",
             templateUrl: "/app/views/refresh.html"
         });
 
         $routeProvider.when("/tokens", {
-            controller: "tokensManagerController",
+            controller: "myController15",
             templateUrl: "/app/views/tokens.html"
         });
 
