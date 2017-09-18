@@ -10,6 +10,8 @@ EnhWebApp.controller("myController1", function ($scope, $http, baseUrl) {
 
     $scope.LoadData = function () {
         $scope.Loading = true;
+        $scope.isSuccess = true;
+
         setTimeout(function () {
             $http.get(baseUrl + "TestBaseInfo/GetIndustrys").then(function (response) {
                 if (response.status == 200) {

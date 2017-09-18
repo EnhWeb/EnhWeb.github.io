@@ -1,7 +1,7 @@
 ﻿"use strict";
 
 var EnhWebApp = (function ($) {
-    var app = $.module("EnhWebApp", ["mePagination"]);
+    var app = $.module("EnhWebApp", ["mePagination", "ngRoute","angular-loading-bar"]);
 
     /**
      * 是否为调试模式 默认值为 true;
@@ -18,6 +18,45 @@ var EnhWebApp = (function ($) {
     var _baseUrl = IsDebug ? "http://localhost:63919/Api/" : "http://sc-webapi-dev-test-webenh.cost88.com";
     app.constant("baseUrl", _baseUrl);
     if (IsDebug) console.log("baseUrl:", _baseUrl);
+
+    /*
+        启用路由
+    */
+    app.config(function ($routeProvider) {
+
+        $routeProvider.when("/home", {
+            controller: "homeController",
+            templateUrl: "/app/views/home.html"
+        });
+
+        $routeProvider.when("/login", {
+            controller: "loginController",
+            templateUrl: "/app/views/login.html"
+        });
+
+        $routeProvider.when("/signup", {
+            controller: "signupController",
+            templateUrl: "/app/views/signup.html"
+        });
+
+        $routeProvider.when("/orders", {
+            controller: "ordersController",
+            templateUrl: "/app/views/orders.html"
+        });
+
+        $routeProvider.when("/refresh", {
+            controller: "refreshController",
+            templateUrl: "/app/views/refresh.html"
+        });
+
+        $routeProvider.when("/tokens", {
+            controller: "tokensManagerController",
+            templateUrl: "/app/views/tokens.html"
+        });
+
+        $routeProvider.otherwise({ redirectTo: "/home" });
+
+    });
 
     /*
         启用Cookie支持
@@ -58,6 +97,12 @@ var EnhWebApp = (function ($) {
                         console.log(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString() + " responseError:error", error);
                     }
                     switch (error.status) {
+                        case 0:
+                            layer.msg("网络断开了，请检查您的网络连接！");
+                            break;
+                        case -1:
+                            layer.msg("服务器维护中，请稍后！");
+                            break;
                         case 200:
                             break;
                         case 401:

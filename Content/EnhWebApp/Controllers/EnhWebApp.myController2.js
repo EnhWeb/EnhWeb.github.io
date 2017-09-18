@@ -16,6 +16,7 @@ EnhWebApp.controller("myController2", function ($scope, $http, baseUrl) {
 
     $scope.LoadData = function () {
         $scope.Loading = true;
+        $scope.isSuccess = true;
 
         //获取列表需要时，将页码重置为1
         if (typeof $scope.myPage.pageNub != "undefined") {
