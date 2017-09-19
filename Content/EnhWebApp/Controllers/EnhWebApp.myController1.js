@@ -4,8 +4,10 @@ EnhWebApp.controller("myController1", function ($scope, $http, baseUrl, $rootSco
     $scope.Loading = true;
     $scope.isSuccess = true;
     $scope.Industrys = [];
-    $scope.alert = function (msg) {
-        window.alert(msg);
+    
+    $scope.GetCompanys = function (item) {
+        $rootScope.IndustryItem = item;
+        $rootScope.IndustryItemId = item.id;
     };
 
     $scope.LoadData = function () {
@@ -27,6 +29,11 @@ EnhWebApp.controller("myController1", function ($scope, $http, baseUrl, $rootSco
 
     $scope.LoadData();
 });
+
+
+
+
+
 
 
 

@@ -19,6 +19,14 @@ var EnhWebApp = (function ($) {
     app.constant("baseUrl", _baseUrl);
     if (IsDebug) console.log("baseUrl:", _baseUrl);
 
+
+    /*
+        路由配置
+    */
+    app.config(function ($locationProvider) {
+        //$locationProvider.html5Mode(false).hashPrefix("!");
+    });
+
     /*
         启用路由
     */
@@ -31,7 +39,7 @@ var EnhWebApp = (function ($) {
 
         $routeProvider.when("/login", {
             controller: "myController11",
-            templateUrl: "/Content/EnhWebApp/Views/login.html"
+            templateUrl: "/Content/EnhWebApp/Views/myController11.html"
         });
 
         $routeProvider.when("/signup", {

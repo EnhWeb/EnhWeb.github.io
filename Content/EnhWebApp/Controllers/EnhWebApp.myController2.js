@@ -12,59 +12,63 @@ EnhWebApp.controller("myController2", function ($scope, $http, baseUrl, $rootSco
         pagesLength: 15,//显示多少个页码到页面中
         perPageOptions: [5, 10, 20, 30, 40, 50, 60]//可选择的每页展示多少条数据
     };
-    
 
     $scope.LoadData = function () {
-        $scope.Loading = true;
-        $scope.isSuccess = true;
+        if (typeof $rootScope.IndustryItemId != "undefined") {
 
-        //获取列表需要时，将页码重置为1
-        if (typeof $scope.myPage.pageNub != "undefined") {
-            $scope.myPage.currentPage = $scope.myPage.pageNub;
-        }        
+            $scope.Loading = true;
+            $scope.isSuccess = true;
 
-        setTimeout(function () {
-            $http.get(
-                baseUrl + "TestBaseInfo/GetCompanys", {
-                    params: {
-                        id: "833524802756018178",
-                        "pageindex": $scope.myPage.currentPage,
-                        "pagesize": $scope.myPage.itemsPerPage
-                    }
-                }
-            ).then(function (response) {
-                if (response.status == 200)
-                {
-                    $scope.isSuccess = response.data.isSuccess;
+            //获取列表需要时，将页码重置为1
+            if (typeof $scope.myPage.pageNub != "undefined") {
+                //$scope.myPage.currentPage = $scope.myPage.pageNub;
+            }
 
-                    if ($scope.isSuccess == true) {
-                        var Companys = response.data.data;
-                        for (var i = 0; i < Companys.length; i++) {
-                            Companys[i].cases = JSON.parse(Companys[i].casesjson.replace(/\\/g, ""));
+            setTimeout(function () {
+                $http.get(
+                    baseUrl + "TestBaseInfo/GetCompanys", {
+                        params: {
+                            id: $rootScope.IndustryItemId, // "833524802756018178",
+                            "pageindex": $scope.myPage.currentPage,
+                            "pagesize": $scope.myPage.itemsPerPage
                         }
-                        $scope.Companys = Companys;
+                    }
+                ).then(function (response) {
+                    if (response.status == 200) {
+                        $scope.isSuccess = response.data.isSuccess;
 
-                        $scope.currentPageIndex = response.data.currentPageIndex;
-                        $scope.pageSize = response.data.pageSize;
-                        $scope.totalPageCount = response.data.totalPageCount;
-                        $scope.startItemIndex = response.data.startItemIndex;
-                        $scope.endItemIndex = response.data.endItemIndex;
-                        $scope.totalItemCount = response.data.totalItemCount;
+                        if ($scope.isSuccess == true) {
+                            var Companys = response.data.data;
 
-                        $scope.myPage.totalItems = response.data.totalItemCount;//当获取总数据后，修改默认值
-                    } 
-                } else {
-                    $scope.isSuccess = false;
-                }  
+                            for (var i = 0; i < Companys.length; i++) {
+                                Companys[i].cases = JSON.parse(Companys[i].casesjson.replace(/\\/g, ""));
+                            }
+                            $scope.Companys = Companys;
 
-                $scope.Loading = false;
-            });
-        }, 500);
+                            $scope.currentPageIndex = response.data.currentPageIndex;
+                            $scope.pageSize = response.data.pageSize;
+                            $scope.totalPageCount = response.data.totalPageCount;
+                            $scope.startItemIndex = response.data.startItemIndex;
+                            $scope.endItemIndex = response.data.endItemIndex;
+                            $scope.totalItemCount = response.data.totalItemCount;
+
+                            $scope.myPage.totalItems = response.data.totalItemCount;//当获取总数据后，修改默认值
+                        }
+                    } else {
+                        $scope.isSuccess = false;
+                    }
+
+                    $scope.Loading = false;
+                });
+            }, 500);
+        } else {
+            $scope.Loading = false;
+        }
     };
 
     //监测当页码。总数据，每页展示数据个数变化时，重新加载数据
     $scope.$watch(function () {
-        return $scope.myPage.itemsPerPage + ' ' + $scope.myPage.currentPage + ' ' + $scope.myPage.totalItems;
+        return $scope.myPage.itemsPerPage + " " + $scope.myPage.currentPage + " " + " " + $rootScope.IndustryItemId;//$scope.myPage.totalItems
     }, $scope.LoadData);
 
     //$scope.LoadData();
