@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-EnhWebApp.controller("myController2", function ($scope, $http, baseUrl) {
+EnhWebApp.controller("myController2", function ($scope, $http, baseUrl, $rootScope) {
     $scope.Loading = true;
     $scope.isSuccess = true;
 

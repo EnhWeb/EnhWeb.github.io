@@ -22,41 +22,41 @@ var EnhWebApp = (function ($) {
     /*
         启用路由
     */
-    app.config(function ($routeProvider) {
+    //app.config(function ($routeProvider) {
 
-        $routeProvider.when("/home", {
-            controller: "myController10",
-            templateUrl: "/Content/EnhWebApp/Views/myController10.html"
-        });
+    //    $routeProvider.when("/home", {
+    //        controller: "myController10",
+    //        templateUrl: "/Content/EnhWebApp/Views/myController10.html"
+    //    });
 
-        $routeProvider.when("/login", {
-            controller: "myController11",
-            templateUrl: "/Content/EnhWebApp/Views/login.html"
-        });
+    //    $routeProvider.when("/login", {
+    //        controller: "myController11",
+    //        templateUrl: "/Content/EnhWebApp/Views/login.html"
+    //    });
 
-        $routeProvider.when("/signup", {
-            controller: "myController12",
-            templateUrl: "/Content/EnhWebApp/Views/signup.html"
-        });
+    //    $routeProvider.when("/signup", {
+    //        controller: "myController12",
+    //        templateUrl: "/Content/EnhWebApp/Views/signup.html"
+    //    });
 
-        $routeProvider.when("/orders", {
-            controller: "myController13",
-            templateUrl: "/Content/EnhWebApp/Views/orders.html"
-        });
+    //    $routeProvider.when("/orders", {
+    //        controller: "myController13",
+    //        templateUrl: "/Content/EnhWebApp/Views/orders.html"
+    //    });
 
-        $routeProvider.when("/refresh", {
-            controller: "myController14",
-            templateUrl: "/Content/EnhWebApp/Views/refresh.html"
-        });
+    //    $routeProvider.when("/refresh", {
+    //        controller: "myController14",
+    //        templateUrl: "/Content/EnhWebApp/Views/refresh.html"
+    //    });
 
-        $routeProvider.when("/tokens", {
-            controller: "myController15",
-            templateUrl: "/Content/EnhWebApp/Views/tokens.html"
-        });
+    //    $routeProvider.when("/tokens", {
+    //        controller: "myController15",
+    //        templateUrl: "/Content/EnhWebApp/Views/tokens.html"
+    //    });
 
-        $routeProvider.otherwise({ redirectTo: "/home" });
+    //    $routeProvider.otherwise({ redirectTo: "/home" });
 
-    });
+    //});
 
     /*
         启用Cookie支持
@@ -98,21 +98,21 @@ var EnhWebApp = (function ($) {
                     }
                     switch (error.status) {
                         case 0:
-                            layer.msg("网络断开了，请检查您的网络连接！");
+                            alert("网络断开了，请检查您的网络连接！");
                             break;
                         case -1:
-                            layer.msg("服务器维护中，请稍后！");
+                            alert("服务器维护中，请稍后！");
                             break;
                         case 200:
                             break;
                         case 401:
-                            layer.msg("登录超时，请重新登录！" + "statusText:" + error.statusText);
+                            alert("登录超时，请重新登录！" + "statusText:" + error.statusText);
                             break;
                         case 403:
-                            layer.msg("一人一账号限制，您的账号已在其它地方登录！如非本人操作，请修改密码！" + "statusText:" + error.statusText);
+                            alert("一人一账号限制，您的账号已在其它地方登录！如非本人操作，请修改密码！" + "statusText:" + error.statusText);
                             break;
                         case 500:
-                            layer.msg("服务忙，请稍后重试！");
+                            alert("服务忙，请稍后重试！");
                             break;
                         default:
                             break;

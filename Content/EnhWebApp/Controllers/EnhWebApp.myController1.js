@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-EnhWebApp.controller("myController1", function ($scope, $http, baseUrl) {
+EnhWebApp.controller("myController1", function ($scope, $http, baseUrl, $rootScope) {
     $scope.Loading = true;
     $scope.isSuccess = true;
     $scope.Industrys = [];
