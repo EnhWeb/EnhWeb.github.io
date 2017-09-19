@@ -22,41 +22,41 @@ var EnhWebApp = (function ($) {
     /*
         启用路由
     */
-    //app.config(function ($routeProvider) {
+    app.config(function ($routeProvider) {
 
-    //    $routeProvider.when("/home", {
-    //        controller: "myController10",
-    //        templateUrl: "/Content/EnhWebApp/Views/myController10.html"
-    //    });
+        $routeProvider.when("/home", {
+            controller: "myController10",
+            templateUrl: "/Content/EnhWebApp/Views/myController10.html"
+        });
 
-    //    $routeProvider.when("/login", {
-    //        controller: "myController11",
-    //        templateUrl: "/Content/EnhWebApp/Views/login.html"
-    //    });
+        $routeProvider.when("/login", {
+            controller: "myController11",
+            templateUrl: "/Content/EnhWebApp/Views/login.html"
+        });
 
-    //    $routeProvider.when("/signup", {
-    //        controller: "myController12",
-    //        templateUrl: "/Content/EnhWebApp/Views/signup.html"
-    //    });
+        $routeProvider.when("/signup", {
+            controller: "myController12",
+            templateUrl: "/Content/EnhWebApp/Views/signup.html"
+        });
 
-    //    $routeProvider.when("/orders", {
-    //        controller: "myController13",
-    //        templateUrl: "/Content/EnhWebApp/Views/orders.html"
-    //    });
+        $routeProvider.when("/orders", {
+            controller: "myController13",
+            templateUrl: "/Content/EnhWebApp/Views/orders.html"
+        });
 
-    //    $routeProvider.when("/refresh", {
-    //        controller: "myController14",
-    //        templateUrl: "/Content/EnhWebApp/Views/refresh.html"
-    //    });
+        $routeProvider.when("/refresh", {
+            controller: "myController14",
+            templateUrl: "/Content/EnhWebApp/Views/refresh.html"
+        });
 
-    //    $routeProvider.when("/tokens", {
-    //        controller: "myController15",
-    //        templateUrl: "/Content/EnhWebApp/Views/tokens.html"
-    //    });
+        $routeProvider.when("/tokens", {
+            controller: "myController15",
+            templateUrl: "/Content/EnhWebApp/Views/tokens.html"
+        });
 
-    //    $routeProvider.otherwise({ redirectTo: "/home" });
+        $routeProvider.otherwise({ redirectTo: "/home" });
 
-    //});
+    });
 
     /*
         启用Cookie支持
