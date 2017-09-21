@@ -24,7 +24,7 @@ EnhWebApp.controller("myController1", function ($scope, $http, baseUrl, $rootSco
 
                 $scope.Loading = false;
             });
-        }, 150);
+        }, 1);
     };
 
     $scope.LoadData();

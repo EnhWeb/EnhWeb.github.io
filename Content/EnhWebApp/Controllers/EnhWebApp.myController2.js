@@ -60,7 +60,7 @@ EnhWebApp.controller("myController2", function ($scope, $http, baseUrl, $rootSco
 
                     $scope.Loading = false;
                 });
-            }, 500);
+            }, 1);
         } else {
             $scope.Loading = false;
         }

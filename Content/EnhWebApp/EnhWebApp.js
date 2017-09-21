@@ -11,11 +11,13 @@ var EnhWebApp = (function ($) {
      * 调式时是否显示更多调试信息
      */
     var IsDebugFull = false;
-
+    if (window.location.hostname.indexOf(".cost88.com") > -1) { // sc-cdn-rm-bp13ee8pf18ll3vl5.cost88.com:8011
+        IsDebug = false;
+    }
     /*
         定义常量
     */
-    var _baseUrl = IsDebug ? "http://localhost:63919/Api/" : "http://sc-webapi-dev-test-webenh.cost88.com";
+    var _baseUrl = IsDebug ? "http://localhost:63919/Api/" : "http://sc-webapi-dev-test-webenh.cost88.com/Api/";
     app.constant("baseUrl", _baseUrl);
     if (IsDebug) console.log("baseUrl:", _baseUrl);
 
