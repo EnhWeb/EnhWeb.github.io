@@ -78,6 +78,23 @@ EnhWebApp.controller("myController2", function ($scope, $http, baseUrl, $rootSco
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 
 //    示例数据
@@ -280,3 +297,15 @@ casesjson (string, optional): 期间信息Json，用来保存会计期间实体�
 }
 
 */
+
+
+
+
+
+
+
+EnhWebApp.controller("myController3", function ($scope, $http, baseUrl) {
+    //$scope.IndestyResource = $resource(baseUrl + ":id", { id: "@id" });
+    //console.log("baseUrl", baseUrl);
+    //console.log("$scope.IndestyResource", $scope.IndestyResource);
+});
