@@ -1,11 +1,13 @@
 ﻿"use strict";
 
-EnhWebApp.controller("myController1", function ($scope, $http, baseUrl) {
+EnhWebApp.controller("myController1", function ($scope, $http, baseUrl, $rootScope) {
     $scope.Loading = true;
     $scope.isSuccess = true;
     $scope.Industrys = [];
-    $scope.alert = function (msg) {
-        window.alert(msg);
+    
+    $scope.GetCompanys = function (item) {
+        $rootScope.IndustryItem = item;
+        $rootScope.IndustryItemId = item.id;
     };
 
     $scope.LoadData = function () {
@@ -22,11 +24,16 @@ EnhWebApp.controller("myController1", function ($scope, $http, baseUrl) {
 
                 $scope.Loading = false;
             });
-        }, 150);
+        }, 1);
     };
 
     $scope.LoadData();
 });
+
+
+
+
+
 
 
 

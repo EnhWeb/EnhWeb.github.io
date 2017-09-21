@@ -11,13 +11,23 @@ var EnhWebApp = (function ($) {
      * 调式时是否显示更多调试信息
      */
     var IsDebugFull = false;
-
+    if (window.location.hostname.indexOf(".cost88.com") > -1) { // sc-cdn-rm-bp13ee8pf18ll3vl5.cost88.com:8011
+        IsDebug = false;
+    }
     /*
         定义常量
     */
-    var _baseUrl = IsDebug ? "http://localhost:63919/Api/" : "http://sc-webapi-dev-test-webenh.cost88.com";
+    var _baseUrl = IsDebug ? "http://localhost:63919/Api/" : "http://sc-webapi-dev-test-webenh.cost88.com/Api/";
     app.constant("baseUrl", _baseUrl);
     if (IsDebug) console.log("baseUrl:", _baseUrl);
+
+
+    /*
+        路由配置
+    */
+    app.config(function ($locationProvider) {
+        //$locationProvider.html5Mode(false).hashPrefix("!");
+    });
 
     /*
         启用路由
@@ -31,7 +41,7 @@ var EnhWebApp = (function ($) {
 
         $routeProvider.when("/login", {
             controller: "myController11",
-            templateUrl: "/Content/EnhWebApp/Views/login.html"
+            templateUrl: "/Content/EnhWebApp/Views/myController11.html"
         });
 
         $routeProvider.when("/signup", {
@@ -98,21 +108,21 @@ var EnhWebApp = (function ($) {
                     }
                     switch (error.status) {
                         case 0:
-                            layer.msg("网络断开了，请检查您的网络连接！");
+                            alert("网络断开了，请检查您的网络连接！");
                             break;
                         case -1:
-                            layer.msg("服务器维护中，请稍后！");
+                            alert("服务器维护中，请稍后！");
                             break;
                         case 200:
                             break;
                         case 401:
-                            layer.msg("登录超时，请重新登录！" + "statusText:" + error.statusText);
+                            alert("登录超时，请重新登录！" + "statusText:" + error.statusText);
                             break;
                         case 403:
-                            layer.msg("一人一账号限制，您的账号已在其它地方登录！如非本人操作，请修改密码！" + "statusText:" + error.statusText);
+                            alert("一人一账号限制，您的账号已在其它地方登录！如非本人操作，请修改密码！" + "statusText:" + error.statusText);
                             break;
                         case 500:
-                            layer.msg("服务忙，请稍后重试！");
+                            alert("服务忙，请稍后重试！");
                             break;
                         default:
                             break;

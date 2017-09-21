@@ -26,7 +26,7 @@ angular.module('mePagination', [])
                              <div class="goPage">\
                                  <span>第<input type="number" ng-model="pg.jumpPageNum"  ng-change="jumpToPage()"/>页</span>\
                                  <span>每页<select name="" id="" ng-model="pg.itemsPerPage" ng-options="option for option in pg.perPageOptions " ng-change="changeItemsPerPage()"></select>条/</span>\
-                                 <span>共{{pg.totalItems}}条</span>\
+                                 <span> 共 {{pg.totalItems}} 条</span>\
                              </div>\
                              <div ng-if="pg.showError">请输入正确页码</div>\
                          </div>',
@@ -36,6 +36,7 @@ angular.module('mePagination', [])
             link: function (scope, element, attrs) {
                 // ng-show="pg.totalItems > pg.itemsPerPage"
                 // 变更当前页
+                
                 scope.pg.currentPage = myPage.pageNub;
                 scope.changeCurrentPage = function (p) {
                     if (p == '...') {
@@ -63,7 +64,7 @@ angular.module('mePagination', [])
                         scope.pg.currentPage = scope.pg.numberOfPages;
                     }
                     myPage.setPageNub(scope.pg.currentPage);
-                    getPagination()
+                    getPagination();
                 };
 
                 // 跳转页
@@ -72,7 +73,7 @@ angular.module('mePagination', [])
                         scope.pg.currentPage = scope.pg.jumpPageNum;
                         myPage.setPageNub(scope.pg.currentPage);
                         getPagination();
-                        scope.pg.jumpPageNum = '';
+                        //scope.pg.jumpPageNum = '';
                     } else {
                         scope.pg.showError = true;
                     }
@@ -158,19 +159,19 @@ angular.module('mePagination', [])
                             scope.pageList.push(scope.pg.numberOfPages);
                         }
                     }
-
                 }
 
 
-                                        //scope.$watch(scope.pg.currentPage,function (newClue,oldVlue) {
-                                        //    myPage.setPageNub(scope.pg.currentPage);
-                                        //    console.log('变化啦');
-                                        //    getPagination();
-                                        //    //scope.$digest();
-                                        //});
-                //                        scope.$watch(scope.pg.totalItems,function (newClue,oldVlue) {
-                //                            getPagination();
-                //                        });
+                //scope.$watch(scope.pg.currentPage,function (newClue,oldVlue) {
+                //    myPage.setPageNub(scope.pg.currentPage);
+                //    console.log('变化啦');
+                //    getPagination();
+                //    //scope.$digest();
+                //});
+                //scope.$watch(scope.pg.totalItems, function (newClue, oldVlue) {
+                //    console.log('变化啦', newClue, oldVlue);
+                //    getPagination();                    
+                //});
 
 
 

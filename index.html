@@ -19,25 +19,24 @@
             <div><button type="button" ng-click="LoadData();"><i class="glyphicon glyphicon-refresh"></i> 刷新</button></div>
             <div ng-show="Loading">加载中 ...</div>
             <div ng-hide="isSuccess">加载数据失败！</div>
-            <div ng-hide="Loading" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 text-center Industry-Item" ng-repeat="item in Industrys" ng-click="alert(item.id);" data-id="{{item.id}}">
+            <div ng-hide="Loading" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 text-center Industry-Item" ng-repeat="item in Industrys" ng-click="GetCompanys(item);" data-id="{{item.id}}">
                 <img ng-src="{{item.filepath}}" height="100" width="100" />
                 <h3>{{item.industryname}}</h3>
             </div>
         </div>
         <div ng-controller="myController2" class="row" title="myController2">
+            <div>{{$root.IndustryItem.industryname}}</div>
             <div ng-show="Loading">加载中 ...</div>
             <div ng-hide="isSuccess">加载数据失败！</div>
-            <div ng-show="isSuccess" ng-hide="Loading" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 text-center Industry-Item" ng-repeat="company in Companys" ng-click="alert(company.id);" data-id="{{company.id}}">
+            <div ng-show="isSuccess" ng-hide="Loading" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 text-center Industry-Item" ng-repeat="company in Companys" ng-click="GetCompanys(company.id);" data-id="{{company.id}}">
                 <img ng-src="{{company.logoimg}}" height="100" width="100" />
-                <h3>{{company.comname}}</h3><span>注册时间：{{company.regdate}}</span>
-                期间如下：
-                <ul>
-                    <li ng-repeat="case in company.cases" data-id="{{case.Id}}" data-item-state="{{case.State}}">
-                        {{case.CaseDate}}
-                    </li>
-                </ul>
+                <h3>{{company.comname}}</h3>
+                <span>注册日期：{{company.regdate|date:"yyyy-MM-dd"}}</span><br />
+                期间如下：<span ng-repeat="case in company.cases" data-id="{{case.Id}}" data-item-state="{{case.State}}">{{case.CaseDate}}</span>
             </div>
-            <div class="col-xs-12 text-right" ng-if="myPage.totalItems" my-pagination pg="myPage"></div>
+            <div class="col-xs-12 text-right">
+                <div ng-if="myPage.totalItems" my-pagination pg="myPage"></div>
+            </div>
         </div>
         <div ng-controller="myController3" class="row" title="myController3"></div>
 
@@ -47,7 +46,7 @@
         <div ng-controller="myController13" class="row" title="myController13"></div>
         <div ng-controller="myController14" class="row" title="myController14"></div>
         <div ng-controller="myController15" class="row" title="myController15"></div>
-        <div ng-include="'Content/EnhWebApp/Views/myController10.html'"></div><a href="#/home">/home</a>
+        <div ng-include="'Content/EnhWebApp/Views/myController10.html'">65456464579879</div><a href="#!/home">/home</a><a href="#!/login">/login</a>
     </div>
     <!--<script src="Content/Libs/angularjs/angular.min.js"></script>-->
     <script src="//cdn.bootcss.com/angular.js/1.6.5/angular.min.js"></script>
@@ -61,11 +60,12 @@
 
 
     <script src="Content/Libs/ng-my-pagination/my-pagination.js"></script>
-    <script src="Content/Libs/jquery/jquery-1.9.1.min.js"></script>
-    <script src="Content/Libs/layer-v3.0.1/layer/layer.js"></script>
+    <!--<script src="Content/Libs/jquery/jquery-1.9.1.min.js"></script>
+    <script src="Content/Libs/layer-v3.0.1/layer/layer.js"></script>-->
     <script src="Content/EnhWebApp/EnhWebApp.js"></script>
     <script src="Content/EnhWebApp/Controllers/EnhWebApp.myController1.js"></script>
     <script src="Content/EnhWebApp/Controllers/EnhWebApp.myController2.js"></script>
     <script src="Content/EnhWebApp/Controllers/EnhWebApp.myController3.js"></script>
+    <script src="Content/EnhWebApp/Controllers/EnhWebApp.myController10-15.js"></script>
 </body>
 </html>
